@@ -16,6 +16,18 @@ import threading
 from threading import *
 import socket
 from socket import *
+import requests
+from reguests import *
+import sys
+from sys import *
+import urllib
+from urllib import *
+import time
+from time import *
+from datetime import datetime
+from urllib import reqeusts as urlrequests
+
+
 
 license = input('enter license :')
 
@@ -115,6 +127,34 @@ def hackerman():
     def tracert84():
         os.system('cmd /k tracert 84.112')
 
+    def iplogger():
+        s = socket.socket()
+        windows_ip = input('Enter Ip:')
+
+        try:
+            host = windows_ip
+            port = 80
+
+            s.bind((host, 80))
+
+        except:
+            print('Ip is in use already')
+            print('use another IP')
+
+        while True:
+            try:
+                s.listen(5)
+                conn, address = s.accept()
+
+                print('[+] Ip Logged ' + str(address[0])
+
+            except:
+                pass
+            print('exiting...')
+            sys.exit(0)
+            
+        
+
 
     tracert192 = tk.Button(frame02, text='tracert 192.168', fg='green', bg='black', command=tracert192)
 
@@ -127,6 +167,9 @@ def hackerman():
     ipcam = tk.Button(frame02, text='Ip Camera', fg='green', bg='black', command=ipcam)
 
     ipcam.pack(side=BOTTOM)
+
+    logger = tk.Button(frame02, text='Ip Logger', fg='green', bg='black', command=iplogger)
+    logger.pack()
     
 canvas = tk.Canvas(root, height=75, width=100, bg='white')
 canvas.pack()
