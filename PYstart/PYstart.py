@@ -24,9 +24,21 @@ from urllib import *
 import time
 from time import *
 from datetime import datetime
+import ipaddress
+from ipaddress import *
 
+print('    /-------------------------------------\ ')
+print('   /                                       \ ')
+print('  /   ---       ---        ---       ---    \ ')
+print(' /   /  /      /  /        \  \      \  \    \ ')
+print('/   /  /      /  /----------\  \      \  \    \ ')
+print('\   \  \      \  \__________/  /      /  /    / ')
+print(' \   \  \      \  \        /  /      /  /    / ')
+print('  \   ---       ---        ---       ---    / ')
+print('   \                                       / ')
+print('    \-------------------------------------/ ')
 
-
+sleep(1)
 
 license = input('enter license :')
 
@@ -98,16 +110,6 @@ def teams():
 
 def hackerman():
 
-    license01 = input('enter second license (License text file) :')
-    if license01 == ('6DQTYLM'):
-
-        print('Welcome')
-        print('------------')
-
-    else:
-        print('invalid license')
-        quit()
-
     root02 = tk.Tk()
     root02.title('HackerManModule')
 
@@ -126,23 +128,84 @@ def hackerman():
     def tracert84():
         os.system('cmd /k tracert 84.112')
 
+    def ip_sec():
+        
+
+        ip2 = input('what is the ip adress :')
+
+        ipa = ipaddress.ip_address(ip2)
+
+        ip2a = ipa.is_private
+
+        ip2b = ipa.is_global
+
+        ip2c = ipaddress.ip_address(ip2).is_loopback
+
+        ip2d = ipaddress.ip_address(ip2).is_multicast
+
+        ip2e = ipaddress.ip_address(ip2).is_link_local
+
+        ip2f = ipaddress.ip_address(ip2).is_reserved
+
+        print('-----------------------------------')
+
+        print('is it a private ip adress =')
+    
+        sleep(1)
+        print(ip2a)
+
+        print('-----------------------------------')
+
+        print('is the ip address global =')
+
+        sleep(1)
+        print(ip2b)
+  
+        print('-----------------------------------')
+
+        print('is the ip address a loopback =')
+
+        sleep(1)
+        print(ip2c)
+
+        print('-----------------------------------')
+
+        print('is the ip address a multicast =')
+
+        sleep(1)
+        print(ip2d)
+
+        print('-----------------------------------')
+
+        print('is the ip address local =')
+
+        sleep(1)
+        print(ip2e)
+
+        print('-----------------------------------')
+
+        print('is the ip address reserved =')
+
+        sleep(1)
+        print(ip2f)
+
 
 
     tracert192 = tk.Button(frame02, text='tracert 192.168', fg='green', bg='black', command=tracert192)
 
-    tracert192.pack(side=LEFT)
+    tracert192.pack()
 
     tracert84 = tk.Button(frame02, text='tracert 84.112', fg='green', bg='black', command=tracert84)
 
-    tracert84.pack(side=LEFT)
+    tracert84.pack()
 
     ipcam = tk.Button(frame02, text='Ip Camera', fg='green', bg='black', command=ipcam)
 
-    ipcam.pack(side=BOTTOM)
+    ipcam.pack()
 
-    logger = tk.Button(frame02, text='Ip Logger', fg='green', bg='black', command=iplogger)
+    ipcheck = tk.Button(frame02, text='Ip security', fg='green', bg='black', command=ip_sec)
 
-    logger.pack()
+    ipcheck.pack()
     
 canvas = tk.Canvas(root, height=75, width=100, bg='white')
 canvas.pack()
