@@ -17,6 +17,10 @@ from threading import *
 import socket
 from socket import *
 
+import urllib
+import time
+from datetime import datetime
+
 import sys
 from sys import *
 import urllib
@@ -116,8 +120,10 @@ def hackerman():
     frame02 = tk.Frame(root02, bg='black')
     frame02.pack()
 
-    label02 = tk.Label(frame02, text='PYstart', fg='green', bg='black')
-    label02.pack()
+    frame03 = tk.Frame(frame02, bg='black')
+    frame03.pack()
+
+
 
     def ipcam():
         webbrowser.open('inurl /view/index.shtml')
@@ -131,7 +137,7 @@ def hackerman():
     def ip_sec():
         
 
-        ip2 = input('what is the ip adress :')
+        ip2 = input('what is the ip address :')
 
         ipa = ipaddress.ip_address(ip2)
 
@@ -189,23 +195,81 @@ def hackerman():
         sleep(1)
         print(ip2f)
 
+    def ping():
+        
+
+        ip = input('enter Ip Address')
+        
+        for ping in range(1,10):
+            
+            address = ip + str(ping)
+            res = subprocess.call(['ping', '-c', '3', address])
+            if res == 0:
+                
+                print("ping to", address, "OK")
+            elif res == 2:
+
+                print("no response from", address)
+            else:
+                
+                print("ping to", address, "failed!")
+
+    def ip_logger():
+        Ip = input('enter Ip you want to log:')
+
+        try:
+            host = Ip
+            port = 80
+
+            socket.bind((host, 80))
+        except:
+            print('Error')
+            print('Try another Ip Address')
+
+        while True:
+            try:
+                socket.listen(5)
+                conn, address = s.accept()
+
+                print('[+] Ip Logged' + (str(address[0])))
+
+            except:
+                pass
+                print('exiting')
+                sys.exit(0)
+
+        
+        
+
 
 
     tracert192 = tk.Button(frame02, text='tracert 192.168', fg='green', bg='black', command=tracert192)
 
-    tracert192.pack()
+    tracert192.pack(side=LEFT)
 
     tracert84 = tk.Button(frame02, text='tracert 84.112', fg='green', bg='black', command=tracert84)
 
-    tracert84.pack()
+    tracert84.pack(side=RIGHT)
 
     ipcam = tk.Button(frame02, text='Ip Camera', fg='green', bg='black', command=ipcam)
 
-    ipcam.pack()
+    ipcam.pack(side=LEFT)
 
     ipcheck = tk.Button(frame02, text='Ip security', fg='green', bg='black', command=ip_sec)
 
-    ipcheck.pack()
+    ipcheck.pack(side=RIGHT)
+
+    ping = tk.Button(frame02, text='Ip Pinger', fg='green', bg='black', command=ping)
+
+    ping.pack(side=LEFT)
+
+    ip_logger = tk.Button(frame03, text='Ip Logger', fg='green', bg='black', command=ip_logger)
+
+    ip_logger.pack(side=LEFT)
+
+    
+
+    
     
 canvas = tk.Canvas(root, height=75, width=100, bg='white')
 canvas.pack()

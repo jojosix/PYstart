@@ -5,6 +5,7 @@ i'll be constantly updating this tool so remember to check my github for new ver
 
 
 -------------------------------------------------------------------------------------------------------------------
-For the hackerman tool you CAN stop the normal PYstart tool it will NOT stop the whole program
+Remember to Run the SETUP programs running before PYstart
 
--------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------- 
+
